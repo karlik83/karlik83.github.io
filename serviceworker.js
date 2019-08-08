@@ -52,7 +52,7 @@ var filesToCache = [
     '/_framework/_bin/System.Core.dll',
     '/_framework/_bin/System.Threading.Tasks.Extensions.dll',
     //Pages
-    '/counter',
+//    '/counter',
     //The compiled project .dll's
     '/_framework/_bin/MyWebApp.dll'
 ];

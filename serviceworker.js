@@ -7,7 +7,7 @@ var filesToCache = [
     '/css/site.css',
     '/css/bootstrap/bootstrap.min.css',
     '/css/open-iconic/font/css/open-iconic-bootstrap.min.css',
-    '/open-iconic',
+//    '/open-iconic',
     '/css/open-iconic/font/fonts/open-iconic.woff',
 //    '/css/loading.css',
     //Blazor framework

@@ -72,49 +72,9 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
-    const requestUrl = new URL(event.request.url);
-
-    // First, handle requests for the root path - server up index.html
-    if (requestUrl.origin === location.origin) {
-        if (requestUrl.pathname === '/') {
-            event.respondWith(caches.match('/index.html'));
-            return;
-        }
-    }
-    // Anything else
     event.respondWith(
-        // Check the cache
-        caches.match(event.request)
-            .then(response => {
-                // anything found in the cache can be returned from there
-                // without passing it on to the network
-                if (response) {
-                    console.log('Found ', event.request.url, ' in cache');
-                    return response;
-                }
-                // otherwise make a network request
-                return fetch(event.request)
-                    .then(response => {
-                        // if we got a valid response 
-                        if (response.ok) {
-                            // and the request was for something rfom our own app url
-                            // we should add it to the cache
-                            if (requestUrl.origin === location.origin) {
-
-                                const pathname = requestUrl.pathname;
-                                console.log("CACHE: Adding " + pathname);
-                                return caches.open(staticCacheName).then(cache => {
-                                    // you can only "read" a response once, 
-                                    // but you can clone it and use that for the cache
-                                    cache.put(event.request.url, response.clone());
-                                });
-                            }
-                        }
-                        return response;
-                    });
-            }).catch(error => {
-                // handle this error - for now just log it
-                console.log(error);
-            })
+        caches.match(event.request, { ignoreSearch: true }).then(response => {
+            return response || fetch(event.request);
+        })
     );
 });

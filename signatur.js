@@ -166,7 +166,7 @@ var zkSignature = (function () {
 				var child = document.getElementById("newSignature");
 				parent.removeChild(child);
 				empty = true;
-				this.capture();
+				//this.capture();
 
 		}
 		,

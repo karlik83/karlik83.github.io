@@ -8,25 +8,23 @@
     <link rel="shortcut icon" href="#">
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
-    <link rel="apple-touch-icon" href="appleTouchIcon.png">
     <script type="text/javascript" src="jspdf.min.js"></script>
     <script src="exampleJsInterop.js"></script>
     <script src="signatur.js"></script>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#e0fad9" />
-    <link rel="script" href="serviceworker.js">	
     <script>
         if ('serviceWorker' in navigator) {
             console.log('Registering service worker now');
             navigator.serviceWorker.register('/serviceworker.js');
         }
     </script>
-
+    <link rel="script" href="serviceworker.js">
 </head>
 <body>
-    <app>Loading..</app>
+    <app>Loading...</app>
 
-    <script src="framework/blazor.webassembly.js"></script>
+    <script src="/_framework/blazor.webassembly.js"></script>
 
 </body>
 </html>

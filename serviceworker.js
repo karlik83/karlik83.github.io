@@ -1,10 +1,10 @@
 ﻿console.log('This is service worker talking');
 var cacheName = 'MyWebApp';
 var filesToCache = [
-    '/',
+    './',
     //Html and css files
-    '/index.html',
-    '/css/site.css',
+    './index.html',
+    './css/site.css',
     '/css/bootstrap/bootstrap.min.css',
     '/css/open-iconic/font/css/open-iconic-bootstrap.min.css',
 //    '/open-iconic',
